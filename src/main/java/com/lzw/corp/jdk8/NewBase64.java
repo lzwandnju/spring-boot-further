@@ -1,4 +1,5 @@
 package com.lzw.corp.jdk8;
+
 import java.util.Base64;
 import java.util.UUID;
 import java.io.UnsupportedEncodingException;
@@ -10,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 
 
 
-public class Base64 {
+public class NewBase64 {
     public static void main(String args[]){
         try {
             // 使用基本编码

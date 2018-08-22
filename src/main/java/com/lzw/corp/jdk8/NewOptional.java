@@ -6,10 +6,10 @@ package com.lzw.corp.jdk8;
  **/
 import java.util.Optional;
 
-public class Optional {
+public class NewOptional {
     public static void main(String args[]){
 
-        Java8Tester java8Tester = new Java8Tester();
+        NewOptional java8Tester = new NewOptional();
         Integer value1 = null;
         Integer value2 = new Integer(10);
 
