@@ -13,18 +13,29 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private final String name;    // required
-    private final String sex;     // required
-    private final Date date;      // required
-    private final String email;       // required
+    //rerquired
+    private final String name;
+    //rerquired
+    private final String sex;
+    //rerquired
+    private final Date date;
+    //rerquired
+    private final String email;
+    // optional
+    private final int height;
+    // optional
+    private final String edu;
+    // optional
+    private final String nickName;
+    // optional
+    private final int weight;
+    // optional
+    private final String addr;
 
-    private final int height;     // optional
-    private final String edu;     // optional
-    private final String nickName;     // optional
-    private final int weight;     // optional
-    private final String addr;     // optional
-
-    // 私有构造器，因此Person对象的创建必须依赖于Builder
+    /**
+     * 私有构造器，因此Person对象的创建必须依赖于Builder
+     * @param builder
+     */
     private User(Builder builder) {
         this.name = builder.name;
         this.sex = builder.sex;
@@ -38,16 +49,25 @@ public class User {
     }
 
     public static class Builder{
-        private final String name;    // required，使用final修饰
-        private final String sex;     // required，使用final修饰
-        private final Date date;      // required，使用final修饰
-        private final String email;       // required，使用final修饰
+        // required，使用final修饰
+        private final String name;
+        // required，使用final修饰
+        private final String sex;
+        // required，使用final修饰
+        private final Date date;
+        // required，使用final修饰
+        private final String email;
 
-        private int height;     // optional，不使用final修饰
-        private String edu;     // optional，不使用final修饰
-        private String nickName;     // optional，不使用final修饰
-        private int weight;     // optional，不使用final修饰
-        private String addr;     // optional，不使用final修饰
+        // optional，不使用final修饰
+        private int height;
+        // optional，不使用final修饰
+        private String edu;
+        // optional，不使用final修饰
+        private String nickName;
+        // optional，不使用final修饰
+        private int weight;
+        // optional，不使用final修饰
+        private String addr;
 
         public Builder(String name, String sex, Date date, String email) {
             this.name = name;
