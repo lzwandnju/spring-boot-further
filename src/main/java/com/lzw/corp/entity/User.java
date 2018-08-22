@@ -10,8 +10,6 @@ import java.util.Date;
  * 演示如何铜鼓builder来优雅的构建对象
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class User {
     //rerquired
     private final String name;
