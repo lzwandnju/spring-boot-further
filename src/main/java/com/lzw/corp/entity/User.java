@@ -14,23 +14,23 @@ import java.util.Date;
 @NoArgsConstructor
 public class User {
     //rerquired
-    private final String name="";
+    private final String name;
     //rerquired
-    private final String sex="";
+    private final String sex;
     //rerquired
-    private final Date date=null;
+    private final Date date;
     //rerquired
-    private final String email="";
+    private final String email;
     // optional
-    private final int height=0;
+    private final int height;
     // optional
-    private final String edu="";
+    private final String edu;
     // optional
-    private final String nickName="";
+    private final String nickName;
     // optional
-    private final int weight=0;
+    private final int weight;
     // optional
-    private final String addr="";
+    private final String addr;
 
     /**
      * 私有构造器，因此Person对象的创建必须依赖于Builder
