@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -39,7 +40,38 @@ public class RpcExporter {
             try{
                 input = new ObjectInputStream(client.getInputStream());
                 String interfaceName = input.readUTF();
-
+                String methodName = input.readUTF();
+                Class<?>[]parameterType = (Class<?>[])input.readObject();
+                Object[]argument=(Object[])input.readObject();
+                Class server = Class.forName(interfaceName);
+                Object method = server.getMethod(methodName,parameterType);
+                Object result = method.invoke(server.newInstance(), argument);
+                output = new ObjectOutputStream(client.getOutputStream());
+                output.writeObject(result);
+            }catch(Exception e){
+                e.printStackTrace();
+            }finally{
+                if(input!=null){
+                    try{
+                        input.close();
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }
+                }
+                if(null!=output){
+                    try{
+                        output.close();
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                if(null!=client){
+                    try{
+                        client.close();
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }
